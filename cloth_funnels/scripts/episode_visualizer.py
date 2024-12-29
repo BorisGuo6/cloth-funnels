@@ -3,7 +3,7 @@
 import copy
 import datetime
 import os
-os.chdir('/local/crv/acanberk/cloth-funnels/cloth_funnels')
+os.chdir('/home/transfer/chenhn/cloth-funnels')
 import pathlib
 import pickle as pkl
 import sys

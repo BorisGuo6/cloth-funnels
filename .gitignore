@@ -162,3 +162,9 @@ outputs/
 *.hdf5 
 *.hdf5.lock
 
+assets/tasks/multi-longsleeve-eval.hdf5.lock.1
+assets/tasks/multi-longsleeve-eval.hdf5.lock.2
+assets/tasks/multi-longsleeve-eval.hdf5.1
+assets/tasks/multi-longsleeve-eval.hdf5.2
+assets/tasks/multi-longsleeve-train.hdf5.1
+assets/tasks/multi-longsleeve-train.hdf5.2

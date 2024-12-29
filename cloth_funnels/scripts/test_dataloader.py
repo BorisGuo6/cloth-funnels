@@ -7,7 +7,7 @@ import time
 import tqdm
 import h5py
 
-dataset_path = '/local/crv/acanberk/cloth-funnels/experiments/04-02-1312-longsleeve/replay_buffer.hdf5'
+dataset_path = '/home/transfer/chenhn/cloth-funnels/experiments/04-02-1312-longsleeve/replay_buffer.hdf5'
 
 @hydra.main(version_base=None, config_path="../conf", config_name="config")
 def main(args : DictConfig):

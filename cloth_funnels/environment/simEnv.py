@@ -263,8 +263,8 @@ class SimEnv:
             not self.gui,  # headless: bool.
             True,  # render: bool
             480, # camera dimensions: int x int
-            480,
-            0 #msaa samples, hardcoded
+            480
+            ,0 #msaa samples, hardcoded
             )  
         self.action_tool = PickerPickPlace(
             num_picker=2,
@@ -1369,7 +1369,7 @@ class SimEnv:
         set_scene(
             config=self.current_task.get_config(),
             state=self.current_task.get_state())
-        
+        # pyflex.empty(0, self.current_task.get_config())
         #find the number of
 
         if self.recreate_verts is not None:

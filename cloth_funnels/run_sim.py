@@ -1,3 +1,5 @@
+import sys
+sys.path.append("/home/transfer/chenhn/cloth-funnels/")
 from cloth_funnels.utils.utils import (
     setup_envs,
     seed_all, 
@@ -47,7 +49,8 @@ if __name__ == '__main__':
 
         assert args.name is not None or args.cont is not None, "Must name run or continue run"
 
-        ray.init(local_mode=args.ray_local_mode)
+        # ray.init(local_mode=args.ray_local_mode)
+        ray.init(num_cpus=2, num_gpus=1,local_mode=args.ray_local_mode)
         seed_all(args.seed)
 
         if args.name: # if name is not none or evaluating, create a new directory
@@ -112,7 +115,21 @@ if __name__ == '__main__':
         nocs_criterion = torch.nn.CrossEntropyLoss(ignore_index=-1)
 
         envs, _ = setup_envs(dataset=dataset_path, **args)
-        observations = ray.get([e.reset.remote() for e in envs])
+        observations = []
+        # try:
+        #     for e in envs:
+        #         e.reset.remote() 
+        # except Exception as e:
+        #     print(f"Error during reset: {e}")
+        # observations = ray.get([e.reset.remote() for e in envs], timeout=6000)
+        try:
+            observations = ray.get([e.reset.remote() for e in envs])
+        except ray.exceptions.RayActorError as e:
+            print(f"Ray Actor Error: {e}")
+        except ray.exceptions.RayTaskError as e:
+            print(f"Ray Task Error: {e}")
+        except Exception as e:
+            print(f"General Error during reset: {e}")
         observations = [obs for obs, _ in observations]
         remaining_observations = []
         ready_envs = copy(envs)

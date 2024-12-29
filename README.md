@@ -144,8 +144,8 @@ To run a demo on a single cloth instance, ensure that you have specified at leas
 ```
 python cloth_funnels/run_sim.py\
     name="demo-single" \
-    load=../models/longsleeve_canonicalized_alignment.pth \
-    eval_tasks=../assets/tasks/longsleeve-single.hdf5 \
+    load=./models/longsleeve_canonicalized_alignment.pth \
+    eval_tasks=./assets/tasks/longsleeve-single.hdf5 \
     eval=True \
     num_processes=1 \
     episode_length=10 \

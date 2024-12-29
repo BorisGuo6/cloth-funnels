@@ -1,6 +1,6 @@
 
 name: null
-log_dir: ../experiments/
+log_dir: ./experiments/
 output_dir: null
 tags: null
 notes: null 
@@ -46,7 +46,7 @@ constant_positional_enc: True
 
 #nocs 
 nocs_mode: collapsed
-keypoint_model_path: /local/crv/acanberk/cloth-funnels/models/keypoint_model.ckpt
+keypoint_model_path: /home/transfer/chenhn/cloth-funnels/models/keypoint_model.ckpt
 
 # pretrain:
 pretrain_epochs: 

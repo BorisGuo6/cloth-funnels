@@ -55,7 +55,9 @@ def setup_network(args, gpu=0):
         print("[Network Setup] Load checkpoint specified", args.load)
         checkpoint_path = args.load
 
-    ckpt = torch.load(checkpoint_path, map_location=policy.device)
+    # ckpt = torch.load(checkpoint_path, map_location=policy.device)
+    ckpt = torch.load(checkpoint_path, map_location=policy.device, weights_only=True)
+
     policy.load_state_dict(ckpt['net'])
     optimizer.load_state_dict(ckpt[f'optimizer'])
 
